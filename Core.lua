@@ -1,9 +1,9 @@
--- XP Bar Plus: a customizable experience / reputation bar
+-- Experienced: a customizable experience / reputation bar
 -- Written for the 1.12 client (OctoWoW), Lua 5.0.
 
-XPBarPlus = {}
-local XBP = XPBarPlus
-local ADDON = "XPBarPlus"
+Experienced = {}
+local XBP = Experienced
+local ADDON = "Experienced"
 local MAXLEVEL = 60
 
 XBP.textures = {
@@ -71,7 +71,7 @@ local session = { start = nil, xp = 0, lastXP = nil, lastMax = nil, lastLevel = 
 -- helpers
 ----------------------------------------------------------------------
 local function Print(msg)
-  DEFAULT_CHAT_FRAME:AddMessage("|cff9966ffXP Bar Plus:|r " .. msg)
+  DEFAULT_CHAT_FRAME:AddMessage("|cff9966ffExperienced:|r " .. msg)
 end
 XBP.Print = Print
 
@@ -200,7 +200,7 @@ end
 ----------------------------------------------------------------------
 -- frames
 ----------------------------------------------------------------------
-local f = CreateFrame("Frame", "XPBarPlusFrame", UIParent)
+local f = CreateFrame("Frame", "ExperiencedFrame", UIParent)
 XBP.frame = f
 f:SetWidth(1024); f:SetHeight(12)
 f:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 90)
@@ -257,7 +257,7 @@ text:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
 -- shown while unlocked
 local moveHint = over:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 moveHint:SetPoint("BOTTOMLEFT", f, "TOPLEFT", 2, 4)
-moveHint:SetText("XP Bar Plus: drag to move, right-click for options")
+moveHint:SetText("Experienced: drag to move, right-click for options")
 local moveGlow = over:CreateTexture(nil, "ARTWORK")
 moveGlow:SetPoint("TOPLEFT", f, "TOPLEFT", 0, 0)
 moveGlow:SetPoint("BOTTOMRIGHT", f, "BOTTOMRIGHT", 0, 0)
@@ -595,9 +595,9 @@ ev:RegisterEvent("CHAT_MSG_COMBAT_XP_GAIN")
 ev:SetScript("OnEvent", function()
   if event == "ADDON_LOADED" then
     if arg1 ~= ADDON then return end
-    if type(XPBarPlusDB) ~= "table" then XPBarPlusDB = {} end
-    CopyDefaults(XBP.defaults, XPBarPlusDB)
-    XBP.db = XPBarPlusDB
+    if type(ExperiencedDB) ~= "table" then ExperiencedDB = {} end
+    CopyDefaults(XBP.defaults, ExperiencedDB)
+    XBP.db = ExperiencedDB
     f:SetScale(XBP.db.scale)
     XBP:ApplyPosition()
     XBP:Layout()
@@ -619,9 +619,10 @@ ev:SetScript("OnEvent", function()
   XBP:Update()
 end)
 
-SLASH_XPBARPLUS1 = "/xpb"
-SLASH_XPBARPLUS2 = "/xpbar"
-SlashCmdList["XPBARPLUS"] = function(msg)
+SLASH_EXPERIENCED1 = "/xpb"
+SLASH_EXPERIENCED2 = "/xpbar"
+SLASH_EXPERIENCED3 = "/experienced"
+SlashCmdList["EXPERIENCED"] = function(msg)
   msg = string.lower(msg or "")
   local _, _, cmd, rest = string.find(msg, "^%s*(%S*)%s*(.-)%s*$")
   cmd = cmd or ""
@@ -653,9 +654,9 @@ SlashCmdList["XPBARPLUS"] = function(msg)
 end
 
 function XBP:ResetAll()
-  XPBarPlusDB = {}
-  CopyDefaults(self.defaults, XPBarPlusDB)
-  self.db = XPBarPlusDB
+  ExperiencedDB = {}
+  CopyDefaults(self.defaults, ExperiencedDB)
+  self.db = ExperiencedDB
   f:SetScale(self.db.scale)
   self:ApplyPosition()
   self:Layout()

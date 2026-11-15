@@ -1,6 +1,6 @@
--- XP Bar Plus options window (/xpb)
+-- Experienced options window (/xpb)
 
-local XBP = XPBarPlus
+local XBP = Experienced
 local panel
 local refreshers = {}
 local count = 0
@@ -8,7 +8,7 @@ local refreshing = false
 
 local function NextName(kind)
   count = count + 1
-  return "XPBarPlusOpt" .. kind .. count
+  return "ExperiencedOpt" .. kind .. count
 end
 
 local function Header(parent, label, x, y)
@@ -183,7 +183,7 @@ local function FormatBox(parent, label, key, x, y, width)
 end
 
 local function Build()
-  panel = CreateFrame("Frame", "XPBarPlusOptions", UIParent)
+  panel = CreateFrame("Frame", "ExperiencedOptions", UIParent)
   panel:SetWidth(620); panel:SetHeight(640)
   panel:SetPoint("CENTER", UIParent, "CENTER", 0, 20)
   panel:SetFrameStrata("HIGH")
@@ -199,11 +199,11 @@ local function Build()
     tile = true, tileSize = 32, edgeSize = 32,
     insets = { left = 11, right = 12, top = 12, bottom = 11 },
   })
-  table.insert(UISpecialFrames, "XPBarPlusOptions")
+  table.insert(UISpecialFrames, "ExperiencedOptions")
 
   local title = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
   title:SetPoint("TOP", panel, "TOP", 0, -18)
-  title:SetText("XP Bar Plus")
+  title:SetText("Experienced")
 
   local close = CreateFrame("Button", nil, panel, "UIPanelCloseButton")
   close:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -6, -6)

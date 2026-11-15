@@ -1,9 +1,9 @@
-# XP Bar Plus
+# Experienced
 
 A customizable experience / reputation bar for the 1.12 client (OctoWoW).
 
 ## Install
-Put the `XPBarPlus` folder in `Interface\AddOns\`. Disable the Bongos XP bar in the AddOns list at the character screen so you don't get two bars.
+Put the `Experienced` folder in `Interface\AddOns\`. Disable the Bongos XP bar in the AddOns list at the character screen so you don't get two bars.
 
 ## Use
 - `/xpb` opens the options window (or right-click the bar)
