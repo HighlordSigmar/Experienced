@@ -5,7 +5,7 @@ A customizable experience / reputation bar for the 1.12 client (OctoWoW).
 ## Install
 1. Download the repository (**Code → Download ZIP**).
 2. Extract it into `World of Warcraft\Interface\AddOns\`.
-3. Rename the folder from `Experienced-main` to **`Experienced`**. The folder name has to match `Experienced.toc`.
+3. Rename the folder from `XP-bar-addon-main` to **`Experienced`**. The folder name has to match `Experienced.toc`.
 4. Restart the game.
 
 Disable the Bongos XP bar in the AddOns list at the character screen so you don't get two bars.
