@@ -1,4 +1,4 @@
--- Experienced options window (/experienced)
+-- Experienced options window (/xpb)
 
 local XBP = Experienced
 local panel

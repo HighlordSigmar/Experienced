@@ -1,6 +1,6 @@
 ## Interface: 11200
 ## Title: |cff9966ffExperienced
-## Notes: A customizable experience and reputation bar. /experienced for options.
+## Notes: A customizable experience and reputation bar. /xpb for options.
 ## Author: Made with Claude
 ## Version: 1.1.0
 ## SavedVariables: ExperiencedDB

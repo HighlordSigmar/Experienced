@@ -619,7 +619,9 @@ ev:SetScript("OnEvent", function()
   XBP:Update()
 end)
 
-SLASH_EXPERIENCED1 = "/experienced"
+SLASH_EXPERIENCED1 = "/xpb"
+SLASH_EXPERIENCED2 = "/xpbar"
+SLASH_EXPERIENCED3 = "/experienced"
 SlashCmdList["EXPERIENCED"] = function(msg)
   msg = string.lower(msg or "")
   local _, _, cmd, rest = string.find(msg, "^%s*(%S*)%s*(.-)%s*$")
@@ -643,11 +645,11 @@ SlashCmdList["EXPERIENCED"] = function(msg)
     Print("all settings reset to defaults.")
   else
     Print("commands:")
-    Print("/experienced - open the options window")
-    Print("/experienced lock, /experienced unlock - lock or unlock the bar")
-    Print("/experienced mode auto, xp or rep - what the bar shows")
-    Print("/experienced session - reset xp/hour and kill tracking")
-    Print("/experienced reset - restore every setting to default")
+    Print("/xpb - open the options window")
+    Print("/xpb lock, /xpb unlock - lock or unlock the bar")
+    Print("/xpb mode auto, xp or rep - what the bar shows")
+    Print("/xpb session - reset xp/hour and kill tracking")
+    Print("/xpb reset - restore every setting to default")
   end
 end
 
