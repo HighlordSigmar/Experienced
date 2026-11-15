@@ -2,8 +2,9 @@
 ## Title: |cff9966ffExperienced
 ## Notes: A customizable experience and reputation bar. /xpb for options.
 ## Author: Made with Claude
-## Version: 1.1.0
+## Version: 1.2.0
 ## SavedVariables: ExperiencedDB
 
 Core.lua
+LevelUp.lua
 Options.lua

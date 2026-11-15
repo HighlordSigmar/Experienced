@@ -39,6 +39,8 @@ XBP.defaults = {
   repByStanding = true,
   hideBlizzard = false,
   tooltip = true,
+  levelUp = true,             -- level-up banner
+  levelUpScale = 1,
   textMode = "always",        -- always | hover | never
   textPos = "center",         -- center | left | right | above | below
   font = 1, fontSize = 10, outline = true,
@@ -397,6 +399,7 @@ function XBP:Layout()
 
   if db.hideBlizzard then HideBlizzard() end
   self:UpdateTextVisibility()
+  if self.ApplyBanner then self:ApplyBanner() end
 end
 
 function XBP:UpdateTextVisibility()
@@ -637,6 +640,8 @@ SlashCmdList["EXPERIENCED"] = function(msg)
     XBP:Update()
     local names = { auto = "Auto", xp = "Experience", rep = "Reputation" }
     Print("now showing: " .. names[rest] .. ".")
+  elseif cmd == "levelup" or cmd == "ding" then
+    XBP:ShowLevelUp(UnitLevel("player"))
   elseif cmd == "session" then
     XBP:ResetSession(); XBP:Update()
     Print("session stats reset.")
@@ -648,6 +653,7 @@ SlashCmdList["EXPERIENCED"] = function(msg)
     Print("/xpb - open the options window")
     Print("/xpb lock, /xpb unlock - lock or unlock the bar")
     Print("/xpb mode auto, xp or rep - what the bar shows")
+    Print("/xpb levelup - preview the level-up banner")
     Print("/xpb session - reset xp/hour and kill tracking")
     Print("/xpb reset - restore every setting to default")
   end

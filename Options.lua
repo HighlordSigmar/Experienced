@@ -184,8 +184,8 @@ end
 
 local function Build()
   panel = CreateFrame("Frame", "ExperiencedOptions", UIParent)
-  panel:SetWidth(620); panel:SetHeight(640)
-  panel:SetPoint("CENTER", UIParent, "CENTER", 0, 20)
+  panel:SetWidth(620); panel:SetHeight(728)
+  panel:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
   panel:SetFrameStrata("HIGH")
   panel:SetToplevel(true)
   panel:EnableMouse(true)
@@ -277,20 +277,31 @@ local function Build()
   end)
 
   -- bottom: format strings
-  Header(panel, "Text format  (press Enter to apply)", L, -512)
+  Header(panel, "Level-up banner", L, -510)
+  Check(panel, "Show a banner when you level up", "levelUp", L, -532)
+  Slider(panel, "Banner scale", "levelUpScale", 0.5, 2, 0.05, L + 6, -568)
+  Button(panel, "Preview banner", R, -534, 130, function() XBP:ShowLevelUp() end)
+  Button(panel, "Reset banner position", R + 140, -534, 130, function() XBP:ResetBannerPosition() end)
+  local bhint = panel:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
+  bhint:SetPoint("TOPLEFT", panel, "TOPLEFT", R, -564)
+  bhint:SetWidth(270)
+  bhint:SetJustifyH("LEFT")
+  bhint:SetText("Untick \"Lock position\" to drag the banner as well as the bar.")
+
+  Header(panel, "Text format  (press Enter to apply)", L, -600)
   local presetIndex = 0
-  Button(panel, "Next preset", 476, -506, 120, function()
+  Button(panel, "Next preset", 476, -594, 120, function()
     presetIndex = presetIndex + 1
     if presetIndex > table.getn(XBP.presets) then presetIndex = 1 end
     XBP.db.xpFormat = XBP.presets[presetIndex]
     XBP:ApplyAll()
     XBP:RefreshOptions()
   end)
-  FormatBox(panel, "XP", "xpFormat", L, -534, 520)
-  FormatBox(panel, "Rep", "repFormat", L, -558, 520)
+  FormatBox(panel, "XP", "xpFormat", L, -622, 520)
+  FormatBox(panel, "Rep", "repFormat", L, -646, 520)
 
   local help = panel:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
-  help:SetPoint("TOPLEFT", panel, "TOPLEFT", L, -586)
+  help:SetPoint("TOPLEFT", panel, "TOPLEFT", L, -674)
   help:SetWidth(572)
   help:SetJustifyH("LEFT")
   help:SetText("|cffffd100XP:|r [cur] [max] [rem] [pct] [rested] [restedpct] [lvl] [nextlvl] [bars] [session] [xph] [ttl] [kills]" ..
