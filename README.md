@@ -3,12 +3,17 @@
 A customizable experience / reputation bar for the 1.12 client (OctoWoW).
 
 ## Install
-Put the `Experienced` folder in `Interface\AddOns\`. Disable the Bongos XP bar in the AddOns list at the character screen so you don't get two bars.
+1. Download the repository (**Code → Download ZIP**).
+2. Extract it into `World of Warcraft\Interface\AddOns\`.
+3. Rename the folder from `XP-bar-addon-main` to **`Experienced`**. The folder name has to match `Experienced.toc`.
+4. Restart the game.
+
+Disable the Bongos XP bar in the AddOns list at the character screen so you don't get two bars.
 
 ## Use
-- `/xpb` opens the options window (or right-click the bar)
+- `/experienced` opens the options window (or right-click the bar)
 - Drag the bar to move it while unlocked, then tick "Lock position"
-- `/xpb lock`, `/xpb unlock`, `/xpb mode auto|xp|rep`, `/xpb session`, `/xpb reset`
+- `/experienced lock`, `/experienced unlock`, `/experienced mode auto|xp|rep`, `/experienced session`, `/experienced reset`
 
 ## What you can change
 - Width, height, scale, opacity, number of segments, bar texture, border, spark
